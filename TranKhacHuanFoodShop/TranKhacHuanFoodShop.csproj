@@ -1,0 +1,449 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BD1049A7-DA4D-4330-96F7-BFE2C9FD2A7B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TranKhacHuanFoodShop</RootNamespace>
+    <AssemblyName>TranKhacHuanFoodShop</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44365</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Admin\css\base.css" />
+    <Content Include="Assets\Admin\css\bootstrap.min.css" />
+    <Content Include="Assets\Admin\css\fix.css" />
+    <Content Include="Assets\Admin\css\login.css" />
+    <Content Include="Assets\Admin\css\now-ui-dashboard.css" />
+    <Content Include="Assets\Admin\css\now-ui-dashboard.min.css" />
+    <Content Include="Assets\Admin\demo\demo.css" />
+    <Content Include="Assets\Admin\demo\demo.js" />
+    <Content Include="Assets\Admin\img\apple-icon.png" />
+    <Content Include="Assets\Admin\img\bg5.jpg" />
+    <Content Include="Assets\Admin\img\default-avatar.png" />
+    <Content Include="Assets\Admin\img\favicon.png" />
+    <Content Include="Assets\Admin\img\header.jpg" />
+    <Content Include="Assets\Admin\img\mike.jpg" />
+    <Content Include="Assets\Admin\img\now-logo.png" />
+    <Content Include="Assets\Admin\img\now-ui-dashboard.gif" />
+    <Content Include="Assets\Admin\js\core\bootstrap.min.js" />
+    <Content Include="Assets\Admin\js\core\jquery.min.js" />
+    <Content Include="Assets\Admin\js\core\popper.min.js" />
+    <Content Include="Assets\Admin\js\ExtraJs\activeLabel.js" />
+    <Content Include="Assets\Admin\js\now-ui-dashboard.js" />
+    <Content Include="Assets\Admin\js\now-ui-dashboard.min.js" />
+    <Content Include="Assets\Admin\js\plugins\bootstrap-notify.js" />
+    <Content Include="Assets\Admin\js\plugins\chartjs.min.js" />
+    <Content Include="Assets\Admin\js\plugins\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Assets\Client\css\headerCart.css" />
+    <Content Include="Assets\Client\css\custom.css" />
+    <Content Include="Assets\Client\css\bootstrap.css" />
+    <Content Include="Assets\Client\css\creditly.css" />
+    <Content Include="Assets\Client\css\easy-responsive-tabs.css" />
+    <Content Include="Assets\Client\css\flexslider.css" />
+    <Content Include="Assets\Client\css\font-awesome.css" />
+    <Content Include="Assets\Client\css\jquery-ui1.css" />
+    <Content Include="Assets\Client\css\loginCustom.css" />
+    <Content Include="Assets\Client\css\popuo-box.css" />
+    <Content Include="Assets\Client\css\style.css" />
+    <Content Include="Assets\Client\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assets\Client\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\Client\images\1.png" />
+    <Content Include="Assets\Client\images\2.png" />
+    <Content Include="Assets\Client\images\a1.jpg" />
+    <Content Include="Assets\Client\images\a10.jpg" />
+    <Content Include="Assets\Client\images\a11.jpg" />
+    <Content Include="Assets\Client\images\a12.jpg" />
+    <Content Include="Assets\Client\images\a2.jpg" />
+    <Content Include="Assets\Client\images\a3.jpg" />
+    <Content Include="Assets\Client\images\a4.jpg" />
+    <Content Include="Assets\Client\images\a5.jpg" />
+    <Content Include="Assets\Client\images\a6.jpg" />
+    <Content Include="Assets\Client\images\a7.jpg" />
+    <Content Include="Assets\Client\images\a8.jpg" />
+    <Content Include="Assets\Client\images\a9.jpg" />
+    <Content Include="Assets\Client\images\about.jpg" />
+    <Content Include="Assets\Client\images\about2.jpg" />
+    <Content Include="Assets\Client\images\arrow.png" />
+    <Content Include="Assets\Client\images\banhbonglantrungmuoi.png" />
+    <Content Include="Assets\Client\images\banhcuonnong.png" />
+    <Content Include="Assets\Client\images\banhgathanthanh %281%29.png" />
+    <Content Include="Assets\Client\images\banhmichao.png" />
+    <Content Include="Assets\Client\images\banhmoussechanhleo.png" />
+    <Content Include="Assets\Client\images\banhquytraxanh.png" />
+    <Content Include="Assets\Client\images\BanhTiramisu.png" />
+    <Content Include="Assets\Client\images\banhtrasua.png" />
+    <Content Include="Assets\Client\images\banner1.jpg" />
+    <Content Include="Assets\Client\images\banner2.jpg" />
+    <Content Include="Assets\Client\images\banner3.jpg" />
+    <Content Include="Assets\Client\images\banner4.jpg" />
+    <Content Include="Assets\Client\images\bg1.jpg" />
+    <Content Include="Assets\Client\images\botoquanmoc.png" />
+    <Content Include="Assets\Client\images\close_1.png" />
+    <Content Include="Assets\Client\images\combosottieuden.png" />
+    <Content Include="Assets\Client\images\comcakhoriengsa.png" />
+    <Content Include="Assets\Client\images\comduigachuangot.png" />
+    <Content Include="Assets\Client\images\comduigasotcay.png" />
+    <Content Include="Assets\Client\images\comgasotnam.png" />
+    <Content Include="Assets\Client\images\comthitrangchaycanh.png" />
+    <Content Include="Assets\Client\images\contact2.jpg" />
+    <Content Include="Assets\Client\images\d1.jpg" />
+    <Content Include="Assets\Client\images\d2.jpg" />
+    <Content Include="Assets\Client\images\d3.jpg" />
+    <Content Include="Assets\Client\images\d4.jpg" />
+    <Content Include="Assets\Client\images\d5.jpg" />
+    <Content Include="Assets\Client\images\garangau.png" />
+    <Content Include="Assets\Client\images\garanpopeyes.png" />
+    <Content Include="Assets\Client\images\k1.jpg" />
+    <Content Include="Assets\Client\images\k10.jpg" />
+    <Content Include="Assets\Client\images\k11.jpg" />
+    <Content Include="Assets\Client\images\k12.jpg" />
+    <Content Include="Assets\Client\images\k2.jpg" />
+    <Content Include="Assets\Client\images\k3.jpg" />
+    <Content Include="Assets\Client\images\k4.jpg" />
+    <Content Include="Assets\Client\images\k5.jpg" />
+    <Content Include="Assets\Client\images\k6.jpg" />
+    <Content Include="Assets\Client\images\k7.jpg" />
+    <Content Include="Assets\Client\images\k8.jpg" />
+    <Content Include="Assets\Client\images\k9.jpg" />
+    <Content Include="Assets\Client\images\left.png" />
+    <Content Include="Assets\Client\images\logo2.png" />
+    <Content Include="Assets\Client\images\luctradau.png" />
+    <Content Include="Assets\Client\images\m1.jpg" />
+    <Content Include="Assets\Client\images\m2.jpg" />
+    <Content Include="Assets\Client\images\m3.jpg" />
+    <Content Include="Assets\Client\images\mitronholo.png" />
+    <Content Include="Assets\Client\images\mitronmucxoan.png" />
+    <Content Include="Assets\Client\images\mitronraucu.png" />
+    <Content Include="Assets\Client\images\mitronthapcam.png" />
+    <Content Include="Assets\Client\images\mitrontrungcut.png" />
+    <Content Include="Assets\Client\images\mitronxucxich.png" />
+    <Content Include="Assets\Client\images\mk4.jpg" />
+    <Content Include="Assets\Client\images\mk5.jpg" />
+    <Content Include="Assets\Client\images\mk6.jpg" />
+    <Content Include="Assets\Client\images\mk7.jpg" />
+    <Content Include="Assets\Client\images\mk8.jpg" />
+    <Content Include="Assets\Client\images\mk9.jpg" />
+    <Content Include="Assets\Client\images\move-up.png" />
+    <Content Include="Assets\Client\images\nav.png" />
+    <Content Include="Assets\Client\images\nut1.png" />
+    <Content Include="Assets\Client\images\pay1.png" />
+    <Content Include="Assets\Client\images\pay2.png" />
+    <Content Include="Assets\Client\images\pay3.png" />
+    <Content Include="Assets\Client\images\pay4.png" />
+    <Content Include="Assets\Client\images\pay5.png" />
+    <Content Include="Assets\Client\images\pay6.png" />
+    <Content Include="Assets\Client\images\pay7.png" />
+    <Content Include="Assets\Client\images\pay8.png" />
+    <Content Include="Assets\Client\images\pay9.png" />
+    <Content Include="Assets\Client\images\paypal.png" />
+    <Content Include="Assets\Client\images\right.png" />
+    <Content Include="Assets\Client\images\s1.jpg" />
+    <Content Include="Assets\Client\images\s2.jpg" />
+    <Content Include="Assets\Client\images\s3.jpg" />
+    <Content Include="Assets\Client\images\s4.jpg" />
+    <Content Include="Assets\Client\images\s5.jpg" />
+    <Content Include="Assets\Client\images\s6.jpg" />
+    <Content Include="Assets\Client\images\s7.jpg" />
+    <Content Include="Assets\Client\images\s8.jpg" />
+    <Content Include="Assets\Client\images\s9.jpg" />
+    <Content Include="Assets\Client\images\se1.jpg" />
+    <Content Include="Assets\Client\images\se2.jpg" />
+    <Content Include="Assets\Client\images\se3.jpg" />
+    <Content Include="Assets\Client\images\search.png" />
+    <Content Include="Assets\Client\images\si.jpg" />
+    <Content Include="Assets\Client\images\si2.jpg" />
+    <Content Include="Assets\Client\images\si3.jpg" />
+    <Content Include="Assets\Client\images\sinhtobo.png" />
+    <Content Include="Assets\Client\images\sinhtodau.png" />
+    <Content Include="Assets\Client\images\sinhtodudu.png" />
+    <Content Include="Assets\Client\images\star1.png" />
+    <Content Include="Assets\Client\images\star22.png" />
+    <Content Include="Assets\Client\images\suachuatranchau.png" />
+    <Content Include="Assets\Client\images\sukemvani.png" />
+    <Content Include="Assets\Client\images\tab3.png" />
+    <Content Include="Assets\Client\images\trasuathaomoc.png" />
+    <Content Include="Assets\Client\images\trasuatranchau.png" />
+    <Content Include="Assets\Client\images\videoimg2.png" />
+    <Content Include="Assets\Client\js\bootstrap.js" />
+    <Content Include="Assets\Client\js\Controller\cartController.js" />
+    <Content Include="Assets\Client\js\Controller\contactController.js" />
+    <Content Include="Assets\Client\js\creditly.js" />
+    <Content Include="Assets\Client\js\easing.js" />
+    <Content Include="Assets\Client\js\easyResponsiveTabs.js" />
+    <Content Include="Assets\Client\js\imagezoom.js" />
+    <Content Include="Assets\Client\js\jquery-2.1.4.min.js" />
+    <Content Include="Assets\Client\js\jquery-ui.js" />
+    <Content Include="Assets\Client\js\jquery.flexisel.js" />
+    <Content Include="Assets\Client\js\jquery.flexslider.js" />
+    <Content Include="Assets\Client\js\jquery.magnific-popup.js" />
+    <Content Include="Assets\Client\js\minicart.js" />
+    <Content Include="Assets\Client\js\move-top.js" />
+    <Content Include="Assets\Client\js\SmoothScroll.min.js" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Assets\Client\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\Client\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\Client\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\Client\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Assets\Client\fonts\FontAwesome.otf" />
+    <Content Include="Assets\Client\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\Client\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\Client\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\Client\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Views\Shared\MainMenu.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\OrderDetail.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\FeedBack\Index.cshtml" />
+    <None Include="Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.0.js" />
+    <Content Include="Scripts\jquery-1.8.0.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Code\CustomMembershipProvider.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FeedBackController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Admin\Data\LoginModel.cs" />
+    <Compile Include="Common\CommonConstants.cs" />
+    <Compile Include="Common\Encryptor.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Common\UserLogin.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Assets\Admin\css\bootstrap.min.css.map" />
+    <Content Include="Assets\Admin\css\now-ui-dashboard.css.map" />
+    <Content Include="Assets\Admin\fonts\nucleo-license.md" />
+    <Content Include="Assets\Admin\fonts\nucleo-outline.eot" />
+    <Content Include="Assets\Admin\fonts\nucleo-outline.ttf" />
+    <Content Include="Assets\Admin\fonts\nucleo-outline.woff" />
+    <Content Include="Assets\Admin\fonts\nucleo-outline.woff2" />
+    <Content Include="Assets\Admin\js\now-ui-dashboard.js.map" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\cards\_card-chart.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\cards\_card-map.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\cards\_card-plain.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\cards\_card-user.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\mixins\_buttons.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\mixins\_cards.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\mixins\_dropdown.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\mixins\_inputs.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\mixins\_page-header.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\mixins\_sidebar.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\mixins\_transparency.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\mixins\_vendor-prefixes.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\plugins\_plugin-animate-bootstrap-notify.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\plugins\_plugin-perfect-scrollbar.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\_alerts.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\_buttons.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\_cards.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\_checkboxes-radio.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\_dropdown.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\_fixed-plugin.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\_footers.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\_images.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\_inputs.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\_misc.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\_mixins.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\_navbar.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\_nucleo-outline.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\_page-header.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\_responsive.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\_sidebar-and-main-panel.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\_tables.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\_typography.scss" />
+    <Content Include="Assets\Admin\scss\now-ui-dashboard\_variables.scss" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Manage.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <None Include="packages.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\TopMenu.cshtml" />
+    <Content Include="Views\Shared\ProductCategory.cshtml" />
+    <Content Include="Views\Product\Category.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Shared\HeaderCart.cshtml" />
+    <Content Include="Views\Cart\Payment.cshtml" />
+    <Content Include="Views\Cart\Success.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Assets\Admin\js\Controller\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{a11c2583-5247-4cad-bc6b-6ed9a77638bc}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57904</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44365/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

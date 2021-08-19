@@ -1,0 +1,82 @@
+﻿@model List<TranKhacHuanFoodShop.Models.CartItem>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+    <script src="~/Assets/Client/js/Controller/cartController.js"></script>   
+    }
+
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">Giỏ Hàng Của Bạn</h1>
+    </div>
+</section>
+
+@if (Model.Count > 0)
+{
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col"> </th>
+                            <th scope="col">Tên Sản Phẩm</th>
+                            <th scope="col">Mã Sản Phẩm</th>
+                            <th scope="col" class="text-center">Số Lượng</th>
+                            <th scope="col" class="text-right">Giá</th>
+                            <th scope="col" class="text-right">Thành Tiền</th>
+
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><img src="@item.Product.Image" /> </td>
+                                <td>@item.Product.Name</td>
+                                <td>@item.Product.Code</td>
+                                <td><input class="txtQuantity" type="text" data-id="@item.Product.ID" value="@item.Quantity" /></td>
+                                <td class="text-right">@item.Product.Price.GetValueOrDefault(0).ToString("N0")</td>
+                                <td class="text-right">@((item.Product.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
+                                <td class="text-right"><button class="btn btn-sm btn-danger btn-Delete" data-id="@item.Product.ID"><i class="fa fa-trash"></i> </button> </td>
+
+                            </tr>
+                        }
+
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col mb-2">
+            <div class="row">
+                <div class="col-sm-12  col-md-3">
+                    <button id="btnContinue" class="btn btn-block btn-light">Tiếp tục Shopping</button>
+                </div>
+
+                <div class="col-sm-12 col-md-3 text-right">
+                    <button id="btnUpdate" class="btn btn-lg btn-block btn-success text-uppercase">Cập Nhật</button>
+                </div>
+
+                <div class="col-sm-12 col-md-3 text-right">
+                    <button id="btnPayment" class="btn btn-lg btn-block btn-success text-uppercase">Thanh Toán</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+else
+{
+    <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+}
+
+
+

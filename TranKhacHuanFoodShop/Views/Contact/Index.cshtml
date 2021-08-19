@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "Liên Hệ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section jsFooter{
+    <script src="/Assets/Client/js/Controller/contactController.js"></script>
+    }
+<div class="contact-w3l">
+    <div class="container">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l">
+            Liên hệ với chúng tôi
+            <span class="heading-style">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </h3>
+        <!-- //tittle heading -->
+        <!-- contact -->
+        <div class="contact agileits">
+            <div class="contact-agileinfo">
+                <div class="contact-form wthree">
+                    <form>
+                        <div class="">
+                            <input id="txtName" type="text" name="name" placeholder="Họ Tên" required="">
+                        </div>
+                        <div class="">
+                            <input id="txtPhone" class="text" type="text" name="Phone" placeholder="Điện thoại" required="">
+                        </div>
+                        <div class="">
+                            <input id="txtMail" class="email" type="email" name="email" placeholder="Email" required="">
+                        </div>
+                        <div class="">
+                            <textarea id="txtMess" placeholder="Message" name="Phản hồi" required=""></textarea>
+                        </div>
+                        <input id="btnSend" type="submit" value="Gửi">
+                    </form>
+                </div>
+                <div class="contact-right wthree">
+                    <div class="col-xs-7 contact-text w3-agileits">
+                        <h4>Thông tin liên hệ :</h4>
+                        <p>
+                            <i class="fa fa-map-marker"></i> 15/3B Huỳnh Văn Nghệ, P, Thành phố Biên Hòa, Đồng Nai, Việt Nam
+                        </p>
+                        <p>
+                            <i class="fa fa-phone"></i> Telephone : +842513952138
+                        </p>
+                        <p>
+                            <i class="fa fa-facebook"></i> Facebook : <a href="http://lhu.edu.vn/">lhu.edu.vn/<a />
+</p>
+                        <p>
+                            <i class="fa fa-envelope-o"></i> Email :
+                            <a href="https://lhu.edu.vn/">lhu@gmail.com</a>
+                        </p>
+                    </div>
+                    <div class="col-xs-5 contact-agile">
+                        <img src="~/Assets/Client/images/contact2.jpg" alt="">
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+        <!-- //contact -->
+    </div>
+</div>
+<!-- map -->
+<div class="map w3layouts">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.1101032610613!2d106.79990691428831!3d10.95505495886794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d9591fa35181%3A0x6afc932071491d69!2sLac%20Hong%20University%2C%20Campus%202!5e0!3m2!1sen!2s!4v1629178406473!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+<!-- //map -->
+<!-- newsletter -->
+<div class="footer-top">
+    <div class="container-fluid">
+        <div class="col-xs-8 agile-leftmk">
+            <h2>Get your Groceries delivered from local stores</h2>
+            <p>Free Delivery on your first order!</p>
+            <form action="#" method="post">
+                <input type="email" placeholder="E-mail" name="email" required="">
+                <input type="submit" value="Subscribe">
+            </form>
+            <div class="newsform-w3l">
+                <span class="fa fa-envelope-o" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="col-xs-4 w3l-rightmk">
+            <img src="images/tab3.png" alt=" ">
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- //newsletter -->

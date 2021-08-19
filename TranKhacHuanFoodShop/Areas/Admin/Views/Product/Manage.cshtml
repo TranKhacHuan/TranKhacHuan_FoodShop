@@ -1,0 +1,86 @@
+﻿@model PagedList.IPagedList<Models.EF.Product>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content">
+    
+    <div class="row">
+        
+        <div class="col-md-12">           
+            <div class="card">
+
+                @using (Html.BeginForm("Manage", "Product", FormMethod.Get))
+                {
+                    <div class="input-group no-border col-md-4">
+                        <input type="text" value="@ViewBag.SearchString" class="form-control" placeholder="Search..." name="searchString">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <i class="now-ui-icons ui-1_zoom-bold" type="submit"></i>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <div class="card-header">
+
+                    <a href="https://localhost:44365/Admin/Product"<p class="btn btn-outline-success"> Thêm Mới Món Ăn </p></a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                            <th>
+                                Mã món
+                            </th>
+                            <th>
+                                Tên món
+                            </th>
+                            <th>
+                                Hình ảnh
+                            </th>
+                            <th class="">
+                                Giá
+                            </th>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr id="row_@item.ID">
+                                        <td>@item.ID</td>
+
+
+                                        <td>@item.Name</td>
+
+
+                                        <td><img src="@item.Image"></img></td>
+
+
+                                        <td>@((item.Price.GetValueOrDefault(0)).ToString("N0"))</td>
+
+
+                                        <td><a class="btn btn-success" href="/Admin/Product/Edit/@item.ID">Sửa</td>
+
+                                        <td>
+                                            <a class="btn btn-danger" @Ajax.ActionLink("Xóa", "Delete", new { @id = item.ID }, new AjaxOptions { Confirm = "Bạn có muốn xóa sản phẩm này ?", OnComplete = "$('#row_ " + @item.ID + "').remove()", HttpMethod = "Delete" })
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+
+
+                        </table>
+
+                        @Html.PagedListPager(Model, page => Url.Action("Manage", new { page,@searchString = @ViewBag.SearchString }))
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

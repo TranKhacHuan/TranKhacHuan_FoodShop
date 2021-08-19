@@ -1,0 +1,168 @@
+﻿@model Models.EF.Product
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var category = (Models.EF.ProductCategory)ViewBag.Category;
+    var relatedProducts = (List<Models.EF.Product>)ViewBag.RelatedProducts;
+}
+
+<!-- Single Page -->
+<div class="banner-bootom-w3-agileits">
+    <div class="container">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l">
+            Chi Tiết Sản Phẩm
+            <span class="heading-style">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </h3>
+        <!-- //tittle heading -->
+        <div class="col-md-5 single-right-left ">
+            <div class="grid images_3_of_2">
+                <div class="flexslider">
+                    <ul class="slides">
+                        <li data-thumb="@Model.Image">
+                            <div class="thumb-image">
+                                <img src="@Model.Image" data-imagezoom="true" class="img-responsive" alt="">
+                            </div>
+                        </li>
+
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7 single-right-left simpleCart_shelfItem">
+            <h3>@Model.Name</h3>
+            <div class="rating1">
+                <span class="starRating">
+                    <input id="rating5" type="radio" name="rating" value="5">
+                    <label for="rating5">5</label>
+                    <input id="rating4" type="radio" name="rating" value="4">
+                    <label for="rating4">4</label>
+                    <input id="rating3" type="radio" name="rating" value="3" checked="">
+                    <label for="rating3">3</label>
+                    <input id="rating2" type="radio" name="rating" value="2">
+                    <label for="rating2">2</label>
+                    <input id="rating1" type="radio" name="rating" value="1">
+                    <label for="rating1">1</label>
+                </span>
+            </div>
+            <p>
+                <span class="item_price">@(Model.Price.HasValue ? Model.Price.Value.ToString("N0"):"") VNĐ</span>
+                
+                <label>Free Ship</label>
+            </p>
+            <div class="single-infoagile">
+                <ul>
+                    <li>
+                        @Model.Description
+                    </li>
+                    <li>
+                        @Model.Description
+                    </li>
+                    <li>
+                        @Model.Description
+                    </li>
+
+                </ul>
+            </div>
+            <div class="product-single-w3l">
+                <p>
+                    <i class="fa fa-hand-o-right" aria-hidden="true"></i>Đây là món thuộc
+                    <label>@category.Name</label> menu.
+                </p>
+                <ul>
+                    <li>
+                        @Model.Description
+                    </li>
+
+                </ul>
+
+            </div>
+            <div class="occasion-cart">
+                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                    <a href="/them-gio-hang?productId=@Model.ID&quantity= 1">
+                        <input type="submit" name="submit" value="Thêm Vào Giỏ" class="button">
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!-- //Single Page -->
+<!-- special offers -->
+<div class="featured-section" id="projects">
+    <div class="container">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l">
+            Sản Phẩm Liên Quan
+            <span class="heading-style">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </h3>
+        <!-- //tittle heading -->
+        <div class="content-bottom-in">
+            <ul id="flexiselDemo1">
+                @foreach (var item in relatedProducts)
+                {
+                    var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                    <li>
+                        <div class="w3l-specilamk">
+                            <div class="speioffer-agile">
+                                <a href="@url">
+                                    <img src="@item.Image" alt="@item.Name">
+                                </a>
+                            </div>
+                            <div class="product-name-w3l">
+                                <h4>
+                                    <a href="@url">@item.Name</a>
+                                </h4>
+                                <div class="w3l-pricehkj">
+                                    <h6>@(item.Price.HasValue ? Model.Price.Value.ToString("N0"):"") VNĐ</h6>
+
+                                </div>
+                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                                    <a href="/them-gio-hang?productId=@Model.ID&quantity= 1">
+                                        <input type="submit" name="submit" value="Thêm Vào Giỏ" class="button">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                }
+
+
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- //special offers -->
+<!-- newsletter -->
+<div class="footer-top">
+    <div class="container-fluid">
+        <div class="col-xs-8 agile-leftmk">
+            <h2>Get your Groceries delivered from local stores</h2>
+            <p>Free Delivery on your first order!</p>
+            <form action="#" method="post">
+                <input type="email" placeholder="E-mail" name="email" required="">
+                <input type="submit" value="Subscribe">
+            </form>
+            <div class="newsform-w3l">
+                <span class="fa fa-envelope-o" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="col-xs-4 w3l-rightmk">
+            <img src="images/tab3.png" alt=" ">
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+

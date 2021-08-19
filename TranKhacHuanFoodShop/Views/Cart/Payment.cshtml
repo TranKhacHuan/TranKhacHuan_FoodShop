@@ -1,0 +1,133 @@
+﻿@model List<TranKhacHuanFoodShop.Models.CartItem>
+
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+    <script src="~/Assets/Client/js/Controller/cartController.js"></script>
+}
+@{
+    int total = 0;
+}
+@{
+    var session = (UserLogin)(Session[TranKhacHuanFoodShop.Common.CommonConstants.USER_SESSION]);
+}
+
+<!-- checkout page -->
+<div class="privacy">
+    <div class="container">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l">
+            Checkout
+            <span class="heading-style">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </h3>
+        <!-- //tittle heading -->
+        <div class="checkout-right">
+            <h4>
+                Giỏ hàng của bạn có:
+                <span>@Model.Count sản phẩm</span>
+            </h4>
+            <div class="table-responsive">
+                <table class="timetable_sub">
+                    <thead>
+                        <tr>
+                            <th>Mã Sản Phẩm</th>
+                            <th>Sản Phẩm</th>
+                            <th>Số Lượng</th>
+                            <th>Tên Sản Phẩm</th>
+
+                            <th>Giá</th>
+                            <th>       </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="rem1">
+                                <td class="invert">@item.Product.ID</td>
+                                <td class="invert-image">
+                                    <a href="single2.html">
+                                        <img style="height:50px ; width:50px" src="@item.Product.Image" alt=" " class="img-responsive">
+                                    </a>
+                                </td>
+                                <td class="invert">
+                                    <div class="quantity">
+                                        <div class="quantity-select">
+                                            <div class="entry value-minus">&nbsp;</div>
+                                            <div class="entry value">
+                                                <span>@item.Quantity</span>
+                                            </div>
+                                            <div class="entry value-plus active">&nbsp;</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="invert">@item.Product.Name</td>
+                                <td class="invert">
+                                    @((item.Product.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))
+                                </td>
+
+                                <td class="text-right"><button class="btn btn-sm btn-danger btn-Delete" data-id="@item.Product.ID"><i class="fa fa-trash"></i> </button> </td>
+                                @{total += (System.Convert.ToInt32(item.Product.Price.GetValueOrDefault(0) * item.Quantity));}
+                            </tr>
+                        }
+
+                        <tr>
+                            <td>
+                                <p>Tổng tiền : @total.ToString("N0") VNĐ</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="checkout-left">
+            <div class="address_form_agile">
+                <h4>Add a new Details</h4>
+                @using (Html.BeginForm("Payment", "Cart", new { @class = "creditly-card-form agileinfo_form" }, FormMethod.Post))
+                {
+                    <div class="creditly-wrapper wthree, w3_agileits_wrapper">
+                        <div class="information-wrapper">
+                            <div class="first-row">
+                                <div class="controls">
+                                    <input class="billing-address-name" type="text" name="shipName" placeholder="Họ và Tên" required="" value=@session.UserName>
+                                </div>
+                                <div class="w3_agileits_card_number_grids">
+                                    <div class="w3_agileits_card_number_grid_left">
+                                        <div class="controls">
+                                            <input type="text" placeholder="Số Điện Thoại" name="mobile" required="">
+                                        </div>
+                                    </div>
+                                    <div class="w3_agileits_card_number_grid_right">
+                                        <div class="controls">
+                                            <input type="text" placeholder="Địa Điểm Nhận Hàng" name="address" required="">
+                                        </div>
+                                    </div>
+                                    <div class="clear"> </div>
+                                </div>
+                                <div class="controls">
+                                    <input type="text" placeholder="Email" name="email" required="">
+                                </div>
+
+                            </div>
+                            <button class="submit check_out">Gửi Đơn Hàng</button>
+                        </div>
+                    </div>
+                }
+
+                <div class="checkout-right-basket">
+                    <a href="payment.html">
+                        Make a Payment
+                        <span class="fa fa-hand-o-right" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+<!-- //checkout page -->

@@ -1,0 +1,89 @@
+﻿@model PagedList.IPagedList<Models.EF.Order>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "OrderManage";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="content">
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="card">
+
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                            <th>
+                                MãHĐ
+                            </th>
+                            <th>
+                                Ngày tạo
+                            </th>
+                            <th>
+                                Người nhận
+                            </th>
+                            <th>
+                                SĐT
+                            </th>
+                            <th>
+                                Điạ chỉ
+                            </th>
+                            <th>
+                                Email
+                            </th>
+
+
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr id="row_@item.ID">
+                                        <td>@item.ID</td>
+
+
+                                        <td>@item.CreatedDate</td>
+
+
+                                        <td>@item.ShipName</td>
+
+
+                                        <td>@item.ShipMobile</td>
+
+                                        <td>@item.ShipAddress</td>
+
+                                        <td>@item.ShipEmail</td>
+
+
+
+
+
+
+
+
+                                        <td><a class="btn btn-success" href="/Admin/Order/OrderDetail/@item.ID">Chi tiết</td>
+
+                                        <td>
+                                            <button  class="btn btn-default " disabled>Đã xem</button>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+
+                        </table>
+
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

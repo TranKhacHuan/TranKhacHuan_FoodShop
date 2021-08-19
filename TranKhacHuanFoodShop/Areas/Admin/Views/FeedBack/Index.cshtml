@@ -1,0 +1,82 @@
+﻿@model PagedList.IPagedList<Models.EF.Feedback>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content">
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="card">
+
+    
+                <div class="card-header">
+                    <h2>Phản hồi từ khách hàng</h2>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                            <th>
+                                Mã phản hồi
+                            </th>
+                            <th>
+                                Tên khách hàng
+                            </th>
+                            <th>
+                                Phone
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                Nội dung phản hồi
+                            </th>
+                            <th>
+                                Ngày phản hồi
+                            </th>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr id="row_@item.ID">
+                                    <td>@item.ID</td>
+
+
+                                    <td>@item.Name</td>
+
+
+                                    <td>@item.Phone</td>
+
+
+                                    <td>@item.Address</td>
+
+                                    <td>@item.Content</td>
+
+                                    <td>@item.CreatedDate</td>
+
+
+                                    <td>
+                                        <a class="btn btn-danger" @Ajax.ActionLink("Xóa", "Delete", new { @id = item.ID }, new AjaxOptions { Confirm = "Bạn có muốn xóa phản hồi này ?", OnComplete = "$('#row_ " + @item.ID + "').remove()", HttpMethod = "Delete" })
+                                    </td>
+                                </tr>
+                                }
+
+                            </tbody>
+
+
+                        </table>
+
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page}))
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
